@@ -249,4 +249,4 @@
 
 
 
-<Card {...proxy} />
+<Card {...proxy} img={img !== undefined ? img : proxy.img} />

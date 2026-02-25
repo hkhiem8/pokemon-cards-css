@@ -38,7 +38,9 @@
 
   let back_img = back;
   let front_img = "";
-  let img_base = img.startsWith("http") ? "" : "https://images.pokemontcg.io/";
+  let mounted = false;
+  $: img_base = img.startsWith("http") ? "" : "https://images.pokemontcg.io/";
+  $: if (mounted) { front_img = img_base + img; }
 
 
   let thisCard;
@@ -374,6 +376,7 @@
 
     // set the front image on mount so that
     // the lazyloading can work correctly
+    mounted = true;
     front_img = img_base + img;
 
     // run a cute little animation on load
